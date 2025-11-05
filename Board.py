@@ -2,18 +2,18 @@ import tkinter as tk
 
 class Board:
     def __init__(self, game_handler):
-        # === Riferimenti ===
-        # collegamento diretto al GameHandler
+        # === References ===
+        # direct reference to GameHandler
         self.game_handler = game_handler
 
         self.root = game_handler.root
 
 
-        # === Setup finestra ===
+        # === Setup window ===
         self.root.geometry("600x600")
         self.root.config(bg="#222")
 
-        # === Titolo ===
+        # === Title ===
         title = tk.Label(
             self.root,
             text="RC GAME",
@@ -23,7 +23,7 @@ class Board:
         )
         title.pack(pady=10)
 
-        # === Punteggi ===
+        # === Scores ===
         score_frame = tk.Frame(self.root, bg="#222")
         score_frame.pack(side=tk.TOP, fill=tk.X, pady=5)
 
@@ -47,17 +47,17 @@ class Board:
         )
         self.player2_label.pack(side=tk.RIGHT, padx=20)
 
-        # === Griglia ===
+        # === Grid ===
         self.grid_frame = tk.Frame(self.root, bg="#222")
         self.grid_frame.pack(expand=True)
 
         self.grid_buttons = []
         self.create_grid(self.game_handler.dimMat)
 
-        # Evidenzia chi gioca per primo
+        # Highlights the first player
         self.highlight_current_player(self.game_handler.current_player)
 
-    # === Creazione della griglia ===
+    # === Grid creation ===
     def create_grid(self, size):
         for r in range(size):
             row_buttons = []
@@ -75,18 +75,18 @@ class Board:
                 row_buttons.append(btn)
             self.grid_buttons.append(row_buttons)
 
-    # === Quando una cella viene cliccata ===
+    # === When it is clicked ===
     def cell_clicked(self, row, col):
-        # Notifica il GameHandler che una cella è stata cliccata
+        # Notifies the GameHandler that a cell has been clicked
         self.game_handler.handle_cell_click(row, col)
 
-    # === Aggiornamento punteggi ===
+    # === Score update ===
     def update_scores(self):
         s1, s2 = self.game_handler.score
-        self.player1_label.config(text=f"{self.game_handler.player1.getName()}: {s1}")
-        self.player2_label.config(text=f"{self.game_handler.player2.getName()}: {s2}")
+        self.player1_label.config(text=f"{self.game_handler.player[0].getName()}: {s1}")
+        self.player2_label.config(text=f"{self.game_handler.player[1].getName()}: {s2}")
 
-    # === Evidenzia il giocatore attuale ===
+    # === Highlight the current player ===
     def highlight_current_player(self, current):
         if current == 1:
             self.player1_label.config(bg="#666")
@@ -95,14 +95,14 @@ class Board:
             self.player1_label.config(bg="#444")
             self.player2_label.config(bg="#666")
 
-    # === Avvia la finestra ===
+    # === Starting the window ===
     def set_visible(self):
         self.root.mainloop()
 
     def update_active_buttons(self, active_row, active_col):
         """
-        Disattiva tutti i bottoni tranne quelli nella stessa riga o colonna
-        della cella cliccata (se non sono già disabilitati o marcati).
+        Turns off all buttons except for those in the same row or column
+        of the clicked cell (if not disabled or marked.
         """
         for r in range(self.game_handler.dimMat):
             for c in range(self.game_handler.dimMat):
@@ -117,3 +117,9 @@ class Board:
                 # altrimenti la disattiviamo
                 else:
                     button.config(state="disabled")
+
+    def disable_all_buttons(self):
+        for r in range(self.game_handler.dimMat):
+            for c in range(self.game_handler.dimMat):
+                button = self.grid_buttons[r][c]
+                button.config(state="disabled")
