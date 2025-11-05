@@ -1,3 +1,6 @@
-print('Hello!')
+import GameHandler
+import tkinter as tk
 
-print('Ciao!')
+game=GameHandler.GameHandler()
+game.play()
+
