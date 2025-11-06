@@ -63,15 +63,16 @@ class Board:
             row_buttons = []
             for c in range(size):
                 btn = tk.Button(
-                    self.grid_frame,
-                    text=f"{self.game_handler.matrix[r][c]}",
-                    width=8,
-                    height=3,
-                    bg="#333",
-                    fg="white",
-                    command=lambda row=r, col=c: self.cell_clicked(row, col)
-                    # command is the function that tells each button what to do when it is being pressed
-                )
+ self.grid_frame,
+    text=f"{self.game_handler.matrix[r][c]}",
+    width=8,
+    height=3,
+    bg="#ddd",         # light gray background
+    fg="black",        # black numbers
+    font=("Helvetica", 16, "bold"),  # makes numbers stand out more
+    command=lambda row=r, col=c: self.cell_clicked(row, col)
+)
+
                 btn.grid(row=r, column=c, padx=5, pady=5)
                 row_buttons.append(btn)
             self.grid_buttons.append(row_buttons)
