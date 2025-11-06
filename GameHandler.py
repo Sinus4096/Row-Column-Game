@@ -7,10 +7,10 @@ import RandomStrategy
 
 
 class GameHandler:
-    def __init__(self,root=tk.Tk(),player1=Player.Player("Player 1",),player2=Player.Player("Player 2")):
-        self.root = root
-        self.player[0] = player1
-        self.player[1] = player2
+    def __init__(self,player1, player2, root=None):
+        self.root = root if root is not None else tk.Tk()
+        self.players = [player1, player2]
+        
         self.current_player = 1
         self.score = [0,0]
         self.matrix = fileReading.load_board_until_ok()
@@ -20,7 +20,7 @@ class GameHandler:
 
     def play(self):
         self.board.set_visible()
-        if(self.player[0].is_human==False):
+        if(self.players[0].is_human==False):
             self.board.disable_all_buttons()
             row,col=self.player[0].move(self.matrix)
             self.handle_cell_click(row,col)
@@ -53,5 +53,5 @@ class GameHandler:
 
         self.board.update_active_buttons(row, col)
         
-        if(self.player[self.current_player-1].is_human==False):
-            self.player[self.current_player-1].move(self.matrix,[row,col])
+        if(self.players[self.current_player-1].is_human==False):
+            self.players[self.current_player-1].move(self.matrix,[row,col])

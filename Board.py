@@ -29,7 +29,7 @@ class Board:
 
         self.player1_label = tk.Label(
             score_frame,
-            text=f"{self.game_handler.player1.getName()}: 0",
+            text=f"{self.game_handler.players[0].getName()}: 0",
             font=("Helvetica", 14),
             bg="#444",
             fg="white",
@@ -39,7 +39,7 @@ class Board:
 
         self.player2_label = tk.Label(
             score_frame,
-            text=f"{self.game_handler.player2.getName()}: 0",
+            text=f"{self.game_handler.players[1].getName()}: 0",
             font=("Helvetica", 14),
             bg="#444",
             fg="white",
@@ -70,6 +70,7 @@ class Board:
                     bg="#333",
                     fg="white",
                     command=lambda row=r, col=c: self.cell_clicked(row, col)
+                    # command is the function that tells each button what to do when it is being pressed
                 )
                 btn.grid(row=r, column=c, padx=5, pady=5)
                 row_buttons.append(btn)
@@ -83,8 +84,8 @@ class Board:
     # === Score update ===
     def update_scores(self):
         s1, s2 = self.game_handler.score
-        self.player1_label.config(text=f"{self.game_handler.player[0].getName()}: {s1}")
-        self.player2_label.config(text=f"{self.game_handler.player[1].getName()}: {s2}")
+        self.player1_label.config(text=f"{self.game_handler.players[0].getName()}: {s1}")
+        self.player2_label.config(text=f"{self.game_handler.players[1].getName()}: {s2}")
 
     # === Highlight the current player ===
     def highlight_current_player(self, current):
