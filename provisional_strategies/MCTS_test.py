@@ -1,7 +1,10 @@
 import random
 import math
 
-class RCGame:
+from Strategy import Strategy
+
+
+class RCGame(Strategy):
     def __init__(self, board, board_size=None):
         if board_size is None:
             self.board_size = len(board)

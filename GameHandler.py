@@ -1,3 +1,5 @@
+import time
+
 import Board
 import Player
 import tkinter as tk
@@ -19,16 +21,19 @@ class GameHandler:
         self.board = Board.Board(self)
 
     def play(self):
-        if not self.players[self.current_player].is_human: 
-            self.root.after(0, lambda: self.computer_turn())
+        if  self.players[0].is_human==False:
+            self.computer_turn()
         self.board.set_visible()
+        print("the game has started")
+
+
 
         #if(not self.players[self.current_player].is_human):
             #self.board.disable_all_buttons()
             #row,col=self.players[0].move(self.matrix)
             #self.handle_cell_click(row,col)
 
-    def computer_turn(self): 
+    def computer_turn(self):
         self.board.disable_all_buttons()
         player = self.players[self.current_player]
         row, col = player.move(self.matrix, self.last_move)
@@ -59,4 +64,4 @@ class GameHandler:
         
         if(not self.players[self.current_player].is_human):
             # self.players[self.current_player-1].move(self.matrix,[row,col])
-            self.root.after(10, self.computer_turn())
+            self.root.after(1000, self.computer_turn)

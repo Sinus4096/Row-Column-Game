@@ -12,7 +12,7 @@ def generate_random_matrix():
         for row in matrix:
             f.write(", ".join(map(str, row)) + "\n")
 
-    print(f"\n✅ Random {n}x{n} matrix saved to matrix.txt (values 1–9).")
+    print(f"\nRandom {n}x{n} matrix saved to matrix.txt (values 1–9).")
     print("Example output:\n")
     for row in matrix:
         print(", ".join(map(str, row)))
