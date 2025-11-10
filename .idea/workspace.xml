@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="97a8b81d-f798-4f45-a9f5-12eb1986ab0f" name="Changes" comment="made the output of gamesetup an object type person. made possible to select strategies and change the name of the player. made better when a computer is player one." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;searchQuery&quot;: &quot;https://github.com/AntoniaSophie04/python-project.git&quot;,
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;A04123&quot;
+    },
+    {
+      &quot;searchQuery&quot;: &quot;https://github.com/AntoniaSophie04/python-project.git&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;searchQuery&quot;: &quot;https://github.com/AntoniaSophie04/python-project.git&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AntoniaSophie04/python-project.git&quot;,
+    &quot;accountId&quot;: &quot;bffa978e-a309-48bd-984b-f15774d85cf8&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="353THWkJX6lPLD0Cz91hf9zzsEX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.GameHandler.executor&quot;: &quot;Run&quot;,
+    &quot;Python.GameSetup.executor&quot;: &quot;Run&quot;,
+    &quot;Python.fileReading.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/annar/PycharmProjects/python-project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\annar\PycharmProjects\python-project" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\annar\PycharmProjects\python-project" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.27397.106" />
+        <option value="bundled-python-sdk-4e2b1448bda8-9a97661f3031-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.27397.106" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="97a8b81d-f798-4f45-a9f5-12eb1986ab0f" name="Changes" comment="" />
+      <created>1762337670571</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762337670571</updated>
+      <workItem from="1762337685362" duration="5049000" />
+      <workItem from="1762357343751" duration="2228000" />
+      <workItem from="1762359616467" duration="7010000" />
+      <workItem from="1762440097914" duration="1184000" />
+      <workItem from="1762441304391" duration="2104000" />
+      <workItem from="1762452030464" duration="834000" />
+      <workItem from="1762452882108" duration="684000" />
+      <workItem from="1762503286823" duration="145000" />
+      <workItem from="1762539252101" duration="1232000" />
+      <workItem from="1762588651736" duration="16855000" />
+      <workItem from="1762612645746" duration="352000" />
+      <workItem from="1762623143515" duration="239000" />
+    </task>
+    <task id="LOCAL-00001" summary="graphic part of the game">
+      <option name="closed" value="true" />
+      <created>1762338873685</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1762338873685</updated>
+    </task>
+    <task id="LOCAL-00002" summary="reads txt file and creates matrix">
+      <option name="closed" value="true" />
+      <created>1762341307845</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1762341307845</updated>
+    </task>
+    <task id="LOCAL-00003" summary="New code - I tried to add the class Strategy and to make it possible to play with the computer and human and both. There are some mistakes ...">
+      <option name="closed" value="true" />
+      <created>1762366116143</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1762366116143</updated>
+    </task>
+    <task id="LOCAL-00004" summary="New code - I tried to add the class Strategy and to make it possible to play with the computer and human and both. There are some mistakes ...">
+      <option name="closed" value="true" />
+      <created>1762441568881</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1762441568881</updated>
+    </task>
+    <task id="LOCAL-00005" summary="made the output of gamesetup an object type person. made possible to select strategies and change the name of the player. made better when a computer is player one.">
+      <option name="closed" value="true" />
+      <created>1762610745666</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1762610745666</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="graphic part of the game" />
+    <MESSAGE value="reads txt file and creates matrix" />
+    <MESSAGE value="New code - I tried to add the class Strategy and to make it possible to play with the computer and human and both. There are some mistakes ..." />
+    <MESSAGE value="made the output of gamesetup an object type person. made possible to select strategies and change the name of the player. made better when a computer is player one." />
+    <option name="LAST_COMMIT_MESSAGE" value="made the output of gamesetup an object type person. made possible to select strategies and change the name of the player. made better when a computer is player one." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/python_project$fileReading.coverage" NAME="fileReading Coverage Results" MODIFIED="1762341064623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_project$GameHandler.coverage" NAME="GameHandler Coverage Results" MODIFIED="1762610224688" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_project$main.coverage" NAME="main Coverage Results" MODIFIED="1762623311562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_project$GameSetup.coverage" NAME="GameSetup Coverage Results" MODIFIED="1762601839258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

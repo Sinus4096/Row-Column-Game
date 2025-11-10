@@ -70,6 +70,5 @@ def open_file(name):
     # Ensure the matrix is square
     if len(matrix_values) != row_length:
         raise ValueError("Matrix is not square (requires N×N).")
-
     # Build NumPy array
     return np.array(matrix_values, dtype=object)
