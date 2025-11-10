@@ -8,7 +8,6 @@ from GameSetup import GameSetup
 setup = GameSetup()
 config = setup.run() # config will store the player's choices in a map
 
-
 p1 = config[0]
 p2 = config[1]
 
