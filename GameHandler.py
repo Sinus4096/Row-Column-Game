@@ -37,7 +37,11 @@ class GameHandler:
     def computer_turn(self):
         self.board.disable_all_buttons()
         player = self.players[self.current_player]
-        row, col = player.move(self.matrix, self.last_move, self.score)
+        move_result = player.move(self.matrix, self.last_move, self.score)
+        if move_result is None:
+            print("Game Over: No moves left for computer.") 
+            return
+        row, col = move_result
         self.handle_cell_click(row, col)
 
     # Calling from Board when a player clicks on a cel

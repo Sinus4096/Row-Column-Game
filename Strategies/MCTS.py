@@ -135,6 +135,7 @@ class MCTSNode:
 
         return best_child
     
+    
     def update(self, result):
         """
         updates node's visit count and number of wins during backpropagation
@@ -255,8 +256,32 @@ class MCTSStrategy(Strategy):
             if not moves:
                 break #Game over
             
-            #pick one legal move entirely at random
-            move = random.choice(moves)
+            # ε-greedy rollout that avoids gifting a huge reply
+            if random.random() < 0.85:
+            # Score = our gain minus a fraction of opponent's immediate best reply
+                def score_move(mv):
+                    r, c = mv
+                    v = copied_board[r][c]
+
+                # Opponent's reply moves if we played mv next (we DON'T need to mutate the board here).
+                # Treat the just-picked cell as 0 when estimating opponent value.
+                    reply_moves = MCTSNode.get_available_moves(copied_board, mv)
+                    opp_best = 0
+                    for rr, cc in reply_moves:
+                        if rr == r and cc == c:
+                        # that cell would be zero after our move
+                            candidate = 0
+                        else:
+                            candidate = copied_board[rr][cc]
+                        if candidate > opp_best:
+                            opp_best = candidate
+
+                    return v - 0.6 * opp_best  # tune 0.4–0.8
+
+                move = max(moves, key=score_move)
+            else:
+                move = random.choice(moves)
+
             
             #aply random move to the temporary state
             move_value = copied_board[move[0]][move[1]]     #get value of move
