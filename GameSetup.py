@@ -4,6 +4,7 @@ import Strategy
 from GameHandler import GameHandler
 from RandomStrategy import RandomStrategy
 from safe_choice_strategy import SafeChoiceStrategy
+from GreedyStrategy import GreedyStrategy
 
 
 class GameSetup:
