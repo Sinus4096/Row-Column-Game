@@ -255,8 +255,9 @@ class MCTSStrategy(Strategy):
             moves = MCTSNode.get_available_moves(copied_board, copied_last_move)
             if not moves:
                 break #Game over
+            move = random.choice(moves)
             
-            # ε-greedy rollout that avoids gifting a huge reply
+            """ # ε-greedy rollout that avoids gifting a huge reply
             if random.random() < 0.85:
             # Score = our gain minus a fraction of opponent's immediate best reply
                 def score_move(mv):
@@ -280,7 +281,7 @@ class MCTSStrategy(Strategy):
 
                 move = max(moves, key=score_move)
             else:
-                move = random.choice(moves)
+                move = random.choice(moves) """
 
             
             #aply random move to the temporary state
