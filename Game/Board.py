@@ -1,6 +1,18 @@
 import tkinter as tk
 
 class Board:
+    """ The Board class is responsible for creating and managing the Graphical User Interface (GUI)
+        of the "RC GAME" using the tkinter library. It handles the visual layout, displays the
+        game board grid, shows player scores, and captures user input.
+
+        It establishes a direct connection with the GameHandler to:
+        1. Retrieve game state information (like player names, scores, and the matrix values).
+        2. Notify the GameHandler when a cell (button) is clicked.
+        3. Update the visual elements based on game events, such as refreshing scores,
+           highlighting the current player, and enabling/disabling buttons to enforce
+           the game's move rules (limiting clicks to the same row or column as the last move).
+        """
+
     def __init__(self, game_handler):
         # === References ===
         # direct reference to GameHandler

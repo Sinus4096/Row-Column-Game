@@ -13,6 +13,26 @@ from Strategies.MCTS import MCTSStrategy
 CONSTANT_SEED = 12345
 
 class GameSetup:
+    """
+        The GameSetup class is a GUI application built with tkinter responsible for configuring
+        all parameters before starting the "RC GAME." It acts as a dedicated setup wizard,
+        allowing users to customize the game environment.
+
+        Its primary functions include:
+        1. User Interface Flow: Presenting a start page, instructions, and a detailed setup page.
+        2. Player Configuration: Allowing the user to name Player 1 and Player 2 and choose
+           if each is a Human or a Computer.
+        3. Strategy Selection: Dynamically presenting a list of available AI strategies (e.g.,
+           Random, Greedy, MCTS) for any chosen computer player.
+        4. Board Generation: Letting the user specify a board size and
+           whether to generate a new board deterministically (using a fixed seed for reproducibility)
+           or randomly, saving the generated board to a file (`boards/board.txt`).
+        5. Validation: Ensuring all required choices (both players and a board file) are made
+           before the 'Start Game' button is enabled.
+        6. Finalization: Creating the concrete `Player` objects with their chosen names and
+           strategies, destroying the setup window, and preparing to launch the main game via `GameHandler`.
+        """
+
     def __init__(self):
         self.root = tk.Tk()  # own set-up window
         self.root.title("Game Start")

@@ -5,6 +5,20 @@ from Game import Board, fileReading
 
 
 class GameHandler:
+    """ The GameHandler class is the central control unit for the "RC GAME," a two-player,
+        turn-based board game. It manages the game's state, enforces the rules, and coordinates
+        the interaction between the game logic and the graphical user interface (GUI) provided
+        by the `Board` class.
+
+        Responsibilities include:
+        1. Initializing the game board (matrix) by reading data from a file.
+        2. Tracking and updating the scores for the two players (human or computer).
+        3. Handling both human clicks and computer moves.
+        4. Switching turns and enabling/disabling the correct buttons based on the last move
+            (limiting moves to the same row or column).
+        5. Detecting the end of the game and announcing the winner.
+        """
+
     def __init__(self, player1, player2, root=None):
         self.root = root if root is not None else tk.Tk()
         self.players = [player1, player2]   # 0 = P1, 1 = P2

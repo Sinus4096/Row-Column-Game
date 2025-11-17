@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="97a8b81d-f798-4f45-a9f5-12eb1986ab0f" name="Changes" comment="Creating the GreedyStrategy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameSetup.py" beforeDir="false" afterPath="$PROJECT_DIR$/GameSetup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/GameHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameHandler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/GameSetup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameSetup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/fileReading.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game/fileReading.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Strategies/RandomStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Strategies/RandomStrategy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +114,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />

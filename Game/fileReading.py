@@ -2,10 +2,21 @@ import os
 import numpy as np
 
 def load_board_until_ok(default_name="boards/board.txt"):
-    """
-    Keep asking for a filename until we can read a valid square integer matrix.
-    Tries 'matrix.txt' first; on failure, prompts the user repeatedly.
-    """
+    """ The `fileReading` module safely loads and validates the initial game board matrix from a text file.
+
+        The primary function, `load_board_until_ok`, repeatedly prompts the user for a
+        filename until a valid file containing a square matrix of integers is successfully
+        read. It first attempts to load a default file (`boards/board.txt`).
+
+        The core file parsing and validation logic resides in `open_file`, which checks for:
+        1. File existence;
+        2. Square dimensions;
+        3. Consistent row lengths;
+        4. Numeric data (integers) in every cell.
+
+        Upon success, it returns the data as a NumPy array for use by the main `GameHandler`.
+        """
+
     tried_default = False
 
     while True:
