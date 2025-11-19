@@ -77,6 +77,7 @@ python Simulations/SimulationHandler.py
 TO be continued........................
 
 ## Source Code Directory Tree
+```bash
 .
 ├── Game/                                    #game logic and components
 │ ├── Board.py                               #board rendering
@@ -98,7 +99,7 @@ TO be continued........................
 │ └── Results/                               #stored simulation outputs & plots
 │
 └── main.py                                  #entry point for running the game
-
+```
 
 
 
