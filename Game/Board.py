@@ -114,6 +114,7 @@ class Board:
         self.root.mainloop()
 
     def update_active_buttons(self, active_row, active_col):
+        print('update bottoni attivi')
         """
         Turns off all buttons except for those in the same row or column
         of the clicked cell (if not disabled or marked.
@@ -133,7 +134,9 @@ class Board:
                     button.config(state="disabled")
 
     def disable_all_buttons(self):
+        print('disabilita tutti i pulsanti')
         for r in range(self.game_handler.dimMat):
             for c in range(self.game_handler.dimMat):
                 button = self.grid_buttons[r][c]
                 button.config(state="disabled")
+                print(f'ha disabilitato il bottone {r,c}')

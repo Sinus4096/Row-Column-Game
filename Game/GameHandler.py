@@ -72,7 +72,6 @@ class GameHandler:
 
     # ---- Computer turn (AI) ----
     def computer_turn(self):
-        self.board.disable_all_buttons()
         player = self.players[self.current_player]
         move_result = player.move(self.matrix, self.last_move, self.score)
         if move_result is None:
@@ -114,4 +113,5 @@ class GameHandler:
 
         # If the next player is a computer, schedule its move
         if not self.players[self.current_player].is_human:
+            self.board.disable_all_buttons()
             self.root.after(1000, self.computer_turn)
