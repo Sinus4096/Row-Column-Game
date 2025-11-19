@@ -77,26 +77,28 @@ python Simulations/SimulationHandler.py
 TO be continued........................
 
 ## Source Code Directory Tree
-
 .
-├── Game/                               #game logic and components
-│   ├── Board.py                        #board rendering
-│   ├── fileReading.py                  
-│   ├── GameHandler.py                  #main game loop and turn handling
-│   ├── GameSetup.py                    #initialization of board and players
-│   └── Player.py                       #player class and score tracking
+├── Game/                                    #game logic and components
+│ ├── Board.py                               #board rendering
+│ ├── fileReading.py                     
+│ ├── GameHandler.py                         #main game loop and turn handling
+│ ├── GameSetup.py                           #initialization of board and players
+│ └── Player.py                              #player class and score tracking
 │
-├── Strategies/                         #AI strategies and decision algorithms
-│   ├── Strategy.py                     #base strategy interface
-│   ├── RandomStrategy.py               #random move selection
-│   ├── GreedyStrategy.py               #greedy move selection
-│   ├── safe_choice_strategy.py         # ???
-│   ├── minimax_f.py                    #minimax (alpha-beta pruning) implementation
-│   └── MCTS.py                         #Monte Carlo Tree Search
+├── Strategies/                              #AI strategies and decision algorithms
+│ ├── Strategy.py                            #base strategy interface
+│ ├── RandomStrategy.py                      #random move selection
+│ ├── GreedyStrategy.py                      #greedy move selection
+│ ├── safe_choice_strategy.py                #???????????????????????????
+│ ├── minimax_f.py                           #minimax (alpha-beta pruning) implementation
+│ └── MCTS.py                                #Monte Carlo Tree Search
 │
-├── Simulations/                        #simulations for performance statistics
-│   ├── SimulationHandler.py            #simulation loop
-│   └── Results/                        #stored simulation outputs &plots
+├── Simulations/                             #simulations for performance statistics
+│ ├── SimulationHandler.py                   #simulation loop
+│ └── Results/                               #stored simulation outputs & plots
 │
-└──main.py                             #entry point for running the game
+└── main.py                                  #entry point for running the game
+
+
+
 
