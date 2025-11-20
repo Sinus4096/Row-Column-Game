@@ -151,7 +151,7 @@ class GameSetup:
             "your opponent just chose. The game continues until there are no valid moves left. Once the "
             "game has ended, the player with the highest total score is the winner.\n\n"
             "Instructions:\n"
-            "Before starting the game, you'll need to configure the following settings:\n"
+            "Before starting the game, you'll need to configure the following settings:\n\n"
             "1. Player Names: Enter the names for Player 1 and Player 2.\n"
             "2. Player Type: For each player, select whether they are a Human or a Computer.\n"
             "3. Computer Strategy: If a player is set to Computer, choose their AI strategy from: Random, "
@@ -167,7 +167,7 @@ class GameSetup:
         txt = st.ScrolledText(
             body, wrap="word", height=18,
             bg=self.COLOR_BG, fg=self.COLOR_TEXT,
-            relief="flat", bd=0, font=("Helvetica", 11)
+            relief="flat", bd=0, font=("Helvetica", 14)
         )
         txt.pack(fill="both", expand=True)
 
@@ -178,24 +178,24 @@ class GameSetup:
         bright_pink = "#E36BAE"
 
         txt.tag_add("welcome", "1.0", "1.end")
-        txt.tag_config("welcome", foreground=bright_pink, font=("Helvetica", 12, "bold"))
+        txt.tag_config("welcome", foreground=bright_pink, font=("Helvetica", 18, "bold"))
 
         # further fine-tuning to make the instructions clearer
         rules_index = txt.search("Rules:", "1.0", tk.END)
         if rules_index:
             txt.tag_add("rules", rules_index, f"{rules_index} lineend")
-            txt.tag_config("rules", foreground=bright_pink, font=("Helvetica", 11, "bold"))
+            txt.tag_config("rules", foreground=bright_pink, font=("Helvetica", 16, "bold"))
 
         instructions_index = txt.search("Instructions:", "1.0", tk.END)
         if instructions_index:
             txt.tag_add("instructions", instructions_index, f"{instructions_index} lineend")
-            txt.tag_config("instructions", foreground=bright_pink, font=("Helvetica", 11, "bold"))
+            txt.tag_config("instructions", foreground=bright_pink, font=("Helvetica", 16, "bold"))
 
 
         end_index = txt.search("Best of luck", "1.0", tk.END)
         if end_index:
             txt.tag_add("ending", end_index, f"{end_index} lineend")
-            txt.tag_config("ending", foreground=bright_pink, font=("Helvetica", 11, "bold"))
+            txt.tag_config("ending", foreground=bright_pink, font=("Helvetica", 14, "bold"))
 
         txt.config(state="disabled")  # read-only
 
