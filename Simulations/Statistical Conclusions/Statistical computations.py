@@ -234,11 +234,11 @@ win_data= results[["strategy", "win_rate"]].rename(columns={"strategy": "Strateg
 
 n= len(win_data)
 sum_all= win_data["WinRate"].sum()
-mean_others= (sum_all - win_data["WinRate"])/(n - 1)
+mean_others= (sum_all - win_data["WinRate"])/(n-1)
 
 win_data["RelativeAdv"]= (win_data["WinRate"]- mean_others)/mean_others
 win_data["RelativeAdv_%"]= 100*win_data["RelativeAdv"]
 
 win_data= win_data.sort_values("RelativeAdv", ascending=False).reset_index(drop=True)
 
-print(win_data.round({"WinRate": 3, "RelativeAdv": 3, "RelativeAdv_%": 1}))
+print(win_data.round({"WinRate":3, "RelativeAdv":3, "RelativeAdv_%":1}))
