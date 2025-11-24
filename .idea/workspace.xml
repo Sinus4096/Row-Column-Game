@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97a8b81d-f798-4f45-a9f5-12eb1986ab0f" name="Changes" comment="statistic absolute path">
+    <list default="true" id="97a8b81d-f798-4f45-a9f5-12eb1986ab0f" name="Changes" comment="Contributors change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/GameSetup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameSetup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boards/board.txt" beforeDir="false" afterPath="$PROJECT_DIR$/boards/board.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +153,7 @@
       <workItem from="1762623143515" duration="239000" />
       <workItem from="1764005628062" duration="23000" />
       <workItem from="1764005998795" duration="942000" />
-      <workItem from="1764006971414" duration="2102000" />
+      <workItem from="1764006971414" duration="3029000" />
     </task>
     <task id="LOCAL-00001" summary="graphic part of the game">
       <option name="closed" value="true" />
@@ -234,7 +235,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764008551034</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Contributors change">
+      <option name="closed" value="true" />
+      <created>1764009624295</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764009624295</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Contributors change">
+      <option name="closed" value="true" />
+      <created>1764009734435</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764009734435</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,14 +265,15 @@
     <MESSAGE value="Creating the GreedyStrategy" />
     <MESSAGE value="Minimal changes: &#10;- highlight the player whose turn it is&#10;- change size of board so it fits better&#10;- made end message nicer - displays actual player names (custom names chosen by users) instead of &quot;Player 1&quot;/&quot;Player 2&quot;." />
     <MESSAGE value="statistic absolute path" />
-    <option name="LAST_COMMIT_MESSAGE" value="statistic absolute path" />
+    <MESSAGE value="Contributors change" />
+    <option name="LAST_COMMIT_MESSAGE" value="Contributors change" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python_project$fileReading.coverage" NAME="fileReading Coverage Results" MODIFIED="1762341064623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python_project$Board.coverage" NAME="Board Coverage Results" MODIFIED="1763640415602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Game" />
     <SUITE FILE_PATH="coverage/python_project$Statistical_computations.coverage" NAME="Statistical computations Coverage Results" MODIFIED="1764008443093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Simulations/Statistical Conclusions" />
     <SUITE FILE_PATH="coverage/python_project$GameHandler.coverage" NAME="GameHandler Coverage Results" MODIFIED="1763639257866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Game" />
-    <SUITE FILE_PATH="coverage/python_project$main.coverage" NAME="main Coverage Results" MODIFIED="1764002858063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_project$main.coverage" NAME="main Coverage Results" MODIFIED="1764010312402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python_project$GameSetup.coverage" NAME="GameSetup Coverage Results" MODIFIED="1762601839258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

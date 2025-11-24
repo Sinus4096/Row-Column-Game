@@ -485,6 +485,15 @@ class GameSetup:
         return p1, p2
 
     def finish_setup(self):
+        # RNGs for full reproducibility
+        if self.reproducible_var.get():
+            random.seed(CONSTANT_SEED)
+            try:
+                import numpy as np
+                np.random.seed(CONSTANT_SEED)
+            except Exception:
+                pass  # numpy may not be used everywhere; ignore if not present
+
         self.p1, self.p2 = self.create_players()
         self.root.destroy()
 
