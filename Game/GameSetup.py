@@ -16,8 +16,7 @@ CONSTANT_SEED = 12345
 
 class GameSetup:
     """
-        GUI setup wizard for RC GAME (visual restyle: candy/pastel palette).
-        Logic unchanged; only styling and a small title helper added.
+        GUI setup wizard for RC GAME.
     """
 
     def __init__(self):

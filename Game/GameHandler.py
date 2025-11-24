@@ -52,23 +52,28 @@ class GameHandler:
         return False
 
     def end_game_and_announce(self):
-        """Disable the board and pop up a winner dialog."""
+        """Disable the board and pop up a winner dialog with player names."""
         self.board.disable_all_buttons()
 
+        # Use chosen names instead of generic "Player 1/2"
+        name1 = self.players[0].getName()
+        name2 = self.players[1].getName()
         p1, p2 = self.score
-        if p1 > p2:
-            winner = "Player 1"
-        elif p2 > p1:
-            winner = "Player 2"
-        else:
-            winner = None  # tie
 
-        if winner:
-            message = f"🎉 {winner} wins!\n\nScores:\nPlayer 1: {p1}\nPlayer 2: {p2}"
+        if p1 > p2:
+            winner_name = name1
+        elif p2 > p1:
+            winner_name = name2
         else:
-            message = f"🤝 It's a tie!\n\nScores:\nPlayer 1: {p1}\nPlayer 2: {p2}"
+            winner_name = None  # tie
+
+        if winner_name:
+            message = f"🎉 {winner_name} wins!\n\nScores:\n{name1}: {p1}\n{name2}: {p2}"
+        else:
+            message = f"🤝 It's a tie!\n\nScores:\n{name1}: {p1}\n{name2}: {p2}"
 
         messagebox.showinfo("Game Over", message)
+
 
     # Computer turn (AI)
     def computer_turn(self):
@@ -94,7 +99,7 @@ class GameHandler:
 
         # Update the button on the board
         button = self.board.grid_buttons[row][col]
-        button.config(text="-", state="disabled", bg="#555")
+        button.config(text="-", state="disabled", bg=self.board.COLOR_CLICKED)
 
         self.last_move = (row, col)
 

@@ -105,7 +105,7 @@ class Board:
     #  Grid creation
     def create_grid(self, size):
         #  dynamic sizing so big boards still fit on screen
-        if size <= 6:
+        if size <= 5:
             btn_w, btn_h, fsize, pad = 8, 3, 16, 3
         elif size <= 8:
             btn_w, btn_h, fsize, pad = 6, 2, 14, 2
@@ -136,8 +136,13 @@ class Board:
 
     # === When it is clicked ===
     def cell_clicked(self, row, col):
-        # Notifies the GameHandler that a cell has been clicked
+        # Notify the GameHandler first (it will update game state and swap turns)
         self.game_handler.handle_cell_click(row, col)
+
+        # Then refresh UI to reflect the new current player and scores
+        self.root.after(0, lambda: self.highlight_current_player(self.game_handler.current_player))
+        self.root.after(0, self.update_scores)
+
 
     # === Score update ===
     def update_scores(self):
@@ -146,13 +151,28 @@ class Board:
         self.player2_label.config(text=f"{self.game_handler.players[1].getName()}: {s2}")
 
     # === Highlight the current player ===
-    def highlight_current_player(self, current):
+    def highlight_current_player(self, current: int):
+        """
+        Visually highlight the active player using the strong accent color and bold label,
+        and render the inactive player with the soft accent.
+        """
+        def _apply(active_wrap, active_label, active_color,
+                   inactive_wrap, inactive_label, inactive_soft):
+            # Active: strong accent + subtle outline; label "lifts" on COLOR_BTN and is bold
+            active_wrap.config(bg=active_color, highlightbackground=active_color, highlightthickness=2, bd=0)
+            active_label.config(bg=self.COLOR_BTN, fg=self.COLOR_TEXT, font=("Helvetica", 14, "bold"))
+
+            # Inactive: soft accent; label returns to background and normal weight
+            inactive_wrap.config(bg=inactive_soft, highlightthickness=0, bd=0)
+            inactive_label.config(bg=self.COLOR_BG, fg=self.COLOR_TEXT, font=("Helvetica", 14, "normal"))
+
         if current == 0:
-            self.p1_wrap.config(bg=self.ACCENT_P1)  #active
-            self.p2_wrap.config(bg=self.ACCENT_P2_SOFT)  #inactive
+            _apply(self.p1_wrap, self.player1_label, self.ACCENT_P1,
+                   self.p2_wrap, self.player2_label, self.ACCENT_P2_SOFT)
         else:
-            self.p1_wrap.config(bg=self.ACCENT_P1_SOFT)
-            self.p2_wrap.config(bg=self.ACCENT_P2)
+            _apply(self.p2_wrap, self.player2_label, self.ACCENT_P2,
+                   self.p1_wrap, self.player1_label, self.ACCENT_P1_SOFT)
+
 
     # === Starting the window ===
     def set_visible(self):
