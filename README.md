@@ -18,6 +18,9 @@ The game tests both short-term tactics and long-term planning, and provides a pl
 ### Aron Vaisman
   - `safe_choice_strategy.py`
 ### Giulia Dorata
+- Developed the `GreedyStrategy.py`
+- Performed the `Statistical computations.py` supporting strategy evaluation.
+- Graph creation supporting the statistical outputs
 ### Marton Nemeth
 ### Sina Maria Schlegel
   - Designed a Monte Carlo Tree Search (MCTS) strategy implementing the standard phases: Selection (using UCB1), Expansion, Simulation (with a greedy bias), and Backpropagation. 
