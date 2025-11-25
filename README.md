@@ -20,6 +20,7 @@ The game tests both short-term tactics and long-term planning, and provides a pl
   - Designed a Monte Carlo Tree Search (MCTS) strategy implementing the standard phases: Selection (using UCB1), Expansion, Simulation (with a greedy bias), and Backpropagation. 
   - Integrated all strategies into a Simulation Engine to evaluate performance. 
   - Ran a statistically robust tournament across multiple board sizes, playing each board twice to eliminate first-mover bias.
+
 ---
 
 ## Project Overview
