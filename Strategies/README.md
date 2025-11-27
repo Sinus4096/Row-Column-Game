@@ -153,9 +153,9 @@ The available search depth is computed from:
 * a safety hard cap (`hard_depth_cap`)
 
 The depth $d$ is chosen so that:
-$$
+$
 b^d <= \text{max\_nodes\_budget}
-$$
+$
 and clamped to avoid overly deep search. Small boards ($3 \times 3$, $4 \times 4$) receive special-case deeper search.
 
 #### 4. Alpha–Beta Minimax Search:
