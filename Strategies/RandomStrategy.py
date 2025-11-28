@@ -31,7 +31,7 @@ class RandomStrategy(Strategy):
 
         n = len(matrix)
 
-        # --- CASE 1: first move (no restrictions) ---
+        # case 1: first move, without restrictions
         if last_move is None:
             print("first turn")
             available = [
@@ -42,7 +42,7 @@ class RandomStrategy(Strategy):
             ]
         else:
             r0, c0 = last_move
-            # --- CASE 2: only pick in the same row or column ---
+            # case 2 : only pick in the same row or column
             available = [
                 (r, c)
                 for r in range(n)

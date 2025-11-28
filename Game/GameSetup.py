@@ -24,17 +24,17 @@ class GameSetup:
         self.root.title("Game Start")
         #Open fullscreen on any OS
         try:
-            self.root.state("zoomed")  # Windows
+            self.root.state("zoomed")  # windows
         except Exception:
             self.root.attributes("-fullscreen", True)  # macOS/Linux fallback
 
         # palette
-        self.COLOR_BG = "#F8C8DC"        # for background
-        self.COLOR_BTN = "#FFF4F7"       # for buttons / inputs
-        self.COLOR_TEXT = "#111111"      # for  text
-        self.ACCENT = "#E36BAE"          # primary accent
-        self.ACCENT_SOFT = "#F6C3DB"     # for outlines
-        self.ACCENT_ALT = "#B36DE3"      # secondary accent
+        self.COLOR_BG = "#F8C8DC" # for background
+        self.COLOR_BTN = "#FFF4F7"  # for buttons / inputs
+        self.COLOR_TEXT = "#111111"   # for  text
+        self.ACCENT = "#E36BAE"  # primary accent
+        self.ACCENT_SOFT = "#F6C3DB" # for outlines
+        self.ACCENT_ALT = "#B36DE3" # secondary accent
 
         # apply window background
         self.root.config(bg=self.COLOR_BG)
@@ -90,12 +90,11 @@ class GameSetup:
         # Title (canvas with outlined text)
         self._draw_outlined_title(self.root, "Welcome to the Row-Column Game!")
 
-        # START button (style)
-        # Center a frame vertically and horizontally for buttons
+        # START button
+        # center a frame vertically and horizontally for buttons
         button_frame = tk.Frame(self.root, bg=self.COLOR_BG)
         button_frame.pack(expand=True)
 
-        # START button
         tk.Button(
             button_frame, text="START",
             width=20, height=3,
@@ -106,7 +105,7 @@ class GameSetup:
             relief="flat", bd=1, highlightthickness=0
         ).pack(pady=15)
 
-        # Instructions button (larger and centered)
+        # Instructions button
         tk.Button(
             button_frame, text="Instructions",
             width=20, height=3,
@@ -135,7 +134,7 @@ class GameSetup:
         body = tk.Frame(card, bg=self.COLOR_BG)
         body.pack(padx=16, pady=16, fill="both", expand=True)
 
-        # Scrollable text (read-only), word-wrapped to a comfortable width
+        # Scrollable text
         import tkinter.scrolledtext as st
         instructions_text = (
             "Welcome to the Row-Column Game!\n\n"
@@ -170,16 +169,15 @@ class GameSetup:
         )
         txt.pack(fill="both", expand=True)
 
-        # Use the Text widget's tag system for formatting
         txt.insert("1.0", instructions_text)
 
-        # --- Formatting tags ---
+        # Formatting tags
         bright_pink = "#E36BAE"
 
         txt.tag_add("welcome", "1.0", "1.end")
         txt.tag_config("welcome", foreground=bright_pink, font=("Helvetica", 18, "bold"))
 
-        # further fine-tuning to make the instructions clearer
+        #fine-tuning to make instructions clearer
         rules_index = txt.search("Rules:", "1.0", tk.END)
         if rules_index:
             txt.tag_add("rules", rules_index, f"{rules_index} lineend")
@@ -208,7 +206,7 @@ class GameSetup:
             width=20, height=2, font=("Helvetica", 11, "bold")
         ).pack(pady=10)
 
-    # switches to setup page
+    #switches to setup page
     def show_setup_page(self):
         self.clear_window()
 
@@ -222,7 +220,7 @@ class GameSetup:
         container.grid_columnconfigure(1, weight=0, minsize=60)
         container.grid_columnconfigure(2, weight=1, minsize=180)
 
-        # Editable names (defaults)
+        #Editable names (defaults)
         self.p1_name_var = tk.StringVar(value="Player 1")
         self.p2_name_var = tk.StringVar(value="Player 2")
 
@@ -234,7 +232,7 @@ class GameSetup:
             highlightbackground=self.ACCENT_SOFT
         ).grid(row=0, column=0, pady=(10, 6))
 
-        # "VS."
+        #"VS."
         tk.Label(
             container, text="VS.", font=("Arial", 16, "bold"),
             fg=self.COLOR_TEXT, bg=self.COLOR_BG
@@ -294,7 +292,7 @@ class GameSetup:
         self.p2_strategy_frame = tk.Frame(container, bg=self.COLOR_BG)
         self.p2_strategy_frame.grid(row=3, column=2, pady=(0, 10))
 
-        # Board Setup "card"
+        #Board Setup
         board_frame = tk.LabelFrame(
             self.root, text="Board Setup", fg=self.COLOR_TEXT, bg=self.COLOR_BG,
             font=("Arial", 13, "bold"), labelanchor="n"
@@ -324,7 +322,7 @@ class GameSetup:
         )
         self.repro_checkbox.grid(row=0, column=2, columnspan=2, sticky="w", padx=16)
 
-        # Buttons row
+        #buttons row
         btns = tk.Frame(inner, bg=self.COLOR_BG)
         btns.grid(row=1, column=0, columnspan=4, sticky="ew", pady=(12, 0))
         btns.grid_columnconfigure(0, weight=0)
@@ -367,7 +365,7 @@ class GameSetup:
     # Creates strategy radio buttons dynamically when Computer is chosen
     def show_strategy_options(self, which_player: str):
         """
-        Create or refresh strategy radio buttons for the given player (p1/p2).
+        Create or refresh strategy radio buttons for the given player (1 or 2)
         The chosen value is stored into p1_strategy_var / p2_strategy_var.
         """
         frame = self.p1_strategy_frame if which_player == "p1" else self.p2_strategy_frame
@@ -438,12 +436,12 @@ class GameSetup:
         p1_chosen = (self.p1_human["state"] == "disabled") or (self.p1_computer["state"] == "disabled")
         p2_chosen = (self.p2_human["state"] == "disabled") or (self.p2_computer["state"] == "disabled")
 
-        # If Computer is chosen, require a non-empty strategy string
+        # if Computer is chosen, require a non-empty strategy string
         p1_ok = p1_chosen and (
                 (self.p1_human["state"] == "disabled") or  # chose Computer
                 (self.p1_computer["state"] == "disabled" and self.p1_strategy_var.get() == "") is False
         )
-        # Equivalent explicit logic:
+
         if self.p1_computer["state"] == "disabled" and self.p1_human["state"] == "normal":
             p1_ok = True
         elif self.p1_human["state"] == "disabled" and self.p1_computer["state"] == "normal":
@@ -485,14 +483,14 @@ class GameSetup:
         return p1, p2
 
     def finish_setup(self):
-        # RNGs for full reproducibility
+        #full reproducibility
         if self.reproducible_var.get():
             random.seed(CONSTANT_SEED)
             try:
                 import numpy as np
                 np.random.seed(CONSTANT_SEED)
             except Exception:
-                pass  # numpy may not be used everywhere; ignore if not present
+                pass  # in case numpy is not used; ignore if not present
 
         self.p1, self.p2 = self.create_players()
         self.root.destroy()

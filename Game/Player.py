@@ -4,7 +4,6 @@ class Player:
     """ The Player class serves as a data structure and interface to represent a participant
         in the game, whether human or computer. It stores the player's identity and
         enables the execution of moves.
-
         Key features:
         1. Identity: Stores the player's `name` and whether they are a `is_human`.
         2. Score Tracking: Although the score is primarily managed by the `GameHandler`,

@@ -21,14 +21,14 @@ class GameHandler:
 
     def __init__(self, player1, player2, root=None):
         self.root = root if root is not None else tk.Tk()
-        self.players = [player1, player2]   # 0 = P1, 1 = P2
-        self.current_player = 0             # 0 = P1, 1 = P2
+        self.players = [player1, player2] # 0 = P1, 1 = P2
+        self.current_player = 0 # 0 = P1, 1 = P2
         self.score = [0, 0]
         self.matrix = fileReading.load_board_until_ok()
         self.dimMat = len(self.matrix)
         self.last_move = None
 
-        # Create Board and link this handler
+        # create Board and link this handler
         self.board = Board.Board(self)
 
     def play(self):
@@ -39,7 +39,7 @@ class GameHandler:
         self.board.set_visible()
         print("the game has started")
 
-    # Helpers for ending the game
+    #helpers for ending the game
     def has_any_legal_moves(self) -> bool:
         """
         Returns True if at least one button is currently clickable (state='normal').
@@ -75,29 +75,29 @@ class GameHandler:
         messagebox.showinfo("Game Over", message)
 
 
-    # Computer turn (AI)
+    # Computer turn
     def computer_turn(self):
         player = self.players[self.current_player]
         move_result = player.move(self.matrix, self.last_move, self.score)
         if move_result is None:
-            # No legal moves for this player → game over
+            # No legal moves for this player means game over
             self.end_game_and_announce()
             return
         row, col = move_result
         self.handle_cell_click(row, col)
 
-    # Handle a click from the board (human or AI)
+    #Handle a click from the board (human or AI)
     def handle_cell_click(self, row, col):
         print(f"[DEBUG] Player {self.current_player+1} clicked ({row}, {col})")
 
-        # Update score for the current player
+        # update score for the current player
         self.score[self.current_player] += self.matrix[row][col]
         self.board.update_scores()
 
-        # Update matrix (mark cell as taken)
+        # update matrix (mark cell as taken)
         self.matrix[row][col] = "-"
 
-        # Update the button on the board
+        #update the button on the board
         button = self.board.grid_buttons[row][col]
         button.config(text="-", state="disabled", bg=self.board.COLOR_CLICKED)
 
@@ -107,7 +107,7 @@ class GameHandler:
         self.current_player = 1 if self.current_player == 0 else 0
         self.board.highlight_current_player(self.current_player)
 
-        # Enable legal buttons for the NEXT player based on the last move
+        #enable legal buttons for the NEXT player based on the last move
         self.board.update_active_buttons(row, col)
 
         # If the next player has no legal moves, end now

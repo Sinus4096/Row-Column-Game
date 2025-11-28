@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97a8b81d-f798-4f45-a9f5-12eb1986ab0f" name="Changes" comment="what everyone did">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/GameHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameHandler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/GameSetup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameSetup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/fileReading.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game/fileReading.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Strategies/RandomStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Strategies/RandomStrategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boards/board.txt" beforeDir="false" afterPath="$PROJECT_DIR$/boards/board.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,7 +333,7 @@
     <SUITE FILE_PATH="coverage/python_project$Board.coverage" NAME="Board Coverage Results" MODIFIED="1763640415602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Game" />
     <SUITE FILE_PATH="coverage/python_project$Statistical_computations.coverage" NAME="Statistical computations Coverage Results" MODIFIED="1764008443093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Simulations/Statistical Conclusions" />
     <SUITE FILE_PATH="coverage/python_project$GameHandler.coverage" NAME="GameHandler Coverage Results" MODIFIED="1763639257866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Game" />
-    <SUITE FILE_PATH="coverage/python_project$main.coverage" NAME="main Coverage Results" MODIFIED="1764073377928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_project$main.coverage" NAME="main Coverage Results" MODIFIED="1764325138144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python_project$GameSetup.coverage" NAME="GameSetup Coverage Results" MODIFIED="1762601839258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
