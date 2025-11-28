@@ -9,7 +9,6 @@ class GreedyStrategy(Strategy):
     def move(self, matrix, last_move, scores):
         """
         Parameters
-        ----------
         matrix : list of lists
             The current board.
         last_move : tuple or None
