@@ -51,9 +51,9 @@ $$
 
 with
 
-- $ z = 2.17 $ (97% CI)  
-- $ p = 0.5 $ (worst-case variance)  
-- $ h = 0.03 $
+- z = 2.17 (97% CI)  
+- p = 0.5 (worst-case variance)  
+- h = 0.03 
 
 This results in:
 
@@ -93,7 +93,7 @@ To keep the full simulation runtime manageable, the MCTS strategy was restricted
 
 - Plots in `Stastical Conclusions`: Statistical visualizations
 
---
+---
 
 ## Plot Interpretation
 
@@ -152,3 +152,4 @@ This line plot visualizes how the overall win rate of each strategy changes as t
 - SafeChoice Stability: The SafeChoice strategy maintains a stable or slightly improving win rate across increasing board sizes, hovering around 60% to 68%. This suggests its approach is robust and scales reasonably well with complexity.
 - Greedy Decline: The Greedy strategy's win rate steadily declines as the board size increases, dropping from about 55% to under 45%, suggesting its simple heuristic struggles with growing complexity.
 - Random Collapse: The Random strategy's win rate rapidly drops to near-zero on boards larger than 5x5, confirming it is non-viable in complex game states.
+
