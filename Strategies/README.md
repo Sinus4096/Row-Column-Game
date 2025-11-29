@@ -215,16 +215,10 @@ Safer and smarter than pure greedy, but still extremely fast (no tree search).
 ### Description
 
 #### Core Idea
-For each legal move (i,j), the strategy computes a composite score:
+For each legal move $(i,j)$, the strategy computes a composite score:
 
-$$
-score(i,j) =
-alpha * v(i,j)
-- beta * oppbest(i,j)
-+ gamma * num_positive_parities
-+ delta * a(i,j)
-+ epsilon * b(i,j)
-$$
+$$ score(i,j) = alpha * v(i,j) - beta * oppbest(i,j) + gamma * num_positive_parities + delta * a(i,j) + epsilon * b(i,j) $$
+
 
 where:
 
@@ -253,7 +247,7 @@ v(i,j) = matrix[i][j]
 
 **2. Opponent’s Best Reply (1-play Safety Check)**
 
-After taking (i,j), the opponent must play in row i or column j.  
+After taking $(i,j)$, the opponent must play in row $i$ or column $j$.  
 Define:
 
 $oppbest(i,j)$ is the highest remaining value in:
@@ -273,7 +267,7 @@ $$
 (\text{top1},\,\text{cnt}_1,\,\text{top2},\,\text{cnt}_2)
 $$
 
-When we consider taking a cell (i,j), the strategy pretends that this value is removed and checks whether the remaining largest value in that row or column appears an even or odd number of times.
+When we consider taking a cell $(i,j)$, the strategy pretends that this value is removed and checks whether the remaining largest value in that row or column appears an even or odd number of times.
 
 This gives the parity features:
 
@@ -288,7 +282,7 @@ $$
 and the same rule defines $b(i,j)$ for the column.
 
 Intuition:  
-Rows/columns with an even number of maximum values are considered a bit “safer,” so the score gives small bonuses when a or b) equals +1.
+Rows/columns with an even number of maximum values are considered a bit “safer,” so the score gives small bonuses when $a$ or $b$) equals $+1$.
 
 
 #### Final Move Decision
@@ -296,9 +290,9 @@ Rows/columns with an even number of maximum values are considered a bit “safer
 After scoring all legal moves, the strategy picks the best one using this order of preference:
 
 1. highest composite score  
-2. more +1 parity signals  
-3. better row parity a, then column parity b  
-4. bottom-right position (using -i,-j as a tiebreaker)  
+2. more $+$1 parity signals  
+3. better row parity $a$, then column parity $b$  
+4. bottom-right position (using $-i$,$-j$ as a tiebreaker)  
 5. tiny random jitter (optional)  
 
 The move with the best overall key is selected.
