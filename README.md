@@ -104,20 +104,21 @@ The following Python libraries were essential for developing the game's core fun
 
 ### Core Libraries
 
-* [cite_start]**TKINTER**: Used for creating the Graphical User Interface (GUI) for the game[cite: 39, 40].
-* [cite_start]**OS**: Used for interaction with the operating system (files, paths, etc.)[cite: 41, 45].
-* [cite_start]**RANDOM**: Essential for generating random numbers, used in board generation and the strategies[cite: 42, 46].
-* [cite_start]**NUMPY**: Used for computing numerical two-dimensional arrays and mathematical operations necessary for the strategies[cite: 43, 44, 47].
-* [cite_start]**TIME**: Used to limit the time of iterations for smoother runs, particularly for Monte Carlo Tree Search (MCTS)[cite: 48, 49].
-* [cite_start]**MATH**: Used for mathematical operations for the strategies[cite: 44, 56].
-* [cite_start]**COPY**: Used to assist the setup of the statistical simulations[cite: 51, 54].
+The following Python libraries were essential for developing the game's core functionality, AI strategies, and statistical evaluation:
 
-### Statistical Analsysis and Plotting Libraries
-These libraries were used for running the simulations, handling the resulting data, and generating the performance graphs:
-
-* [cite_start]**PANDAS**: Used for assisting the setup of the statistical simulations and data handling of the results[cite: 51, 55].
-* [cite_start]**MATPLOTLIB**: Used for plotting the final results of the statistical evaluation[cite: 52, 58].
-* [cite_start]**SEABORN**: Used for creating visually appealing statistical graphs and heatmaps, also for plotting the final results[cite: 53, 57].
+| Category | Library | Purpose |
+| :--- | :--- | :--- |
+| **Core Game & Logic** | **TKINTER** | Used for creating the Graphical User Interface (GUI). |
+| | **OS** | Used for interaction with the operating system (files, paths, etc.). |
+| | **RANDOM** | Essential for generating random numbers. |
+| | **NUMPY** | Computing numerical two-dimensional arrays and mathematical operations for the strategies. |
+| | **TIME** | Used to limit the time of iterations for smoother runs (e.g., MCTS). |
+| | **MATH** | Used for mathematical operations for the strategies. |
+| | **COPY** | Used to assist the setup of the statistical simulations. |
+| | **SYS** | Used for system-specific parameters and functions. |
+| **Statistical Analysis & Plotting** | **PANDAS** | Used for assisting the setup of the statistical simulations and data handling. |
+| | **MATPLOTLIB** | Used for plotting the final results of the statistical evaluation. |
+| | **SEABORN** | Used for creating visually appealing statistical graphs and heatmaps, and plotting the final results. |
 
 ---
 
