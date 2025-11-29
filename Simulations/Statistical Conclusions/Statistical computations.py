@@ -86,7 +86,7 @@ plt.tight_layout()
 plt.show()
 
 
-'''
+
 #bgi heatmap of strategy vs opponent per board size
 csv_heatmap = csv.copy(deep=True)
 
@@ -116,7 +116,7 @@ ax.set_xlabel("Opponent × Board Size")
 ax.set_ylabel("Strategy")
 plt.tight_layout()
 plt.show()
-'''
+
 
     #Win rates of Strategies relatively to board size
 print("\n\033[1m      Win rates of Strategies relatively to board size \033[0m")
