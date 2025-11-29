@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# JetBrains IDE configs
+.idea/
+
+# VS Code settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Project-specific
+boards/board.txt
+Simulations/Results/
