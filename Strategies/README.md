@@ -218,19 +218,19 @@ Safer and smarter than pure greedy, but still extremely fast (no tree search).
 For each legal move (i,j), the strategy computes a composite score:
 
 $$
-score(i,j)
-= \alpha * v(i,j)
-- \beta * oppbest}(i,j)
-+ \gamma * \#\{a(i,j), b(i,j)=+1\}
-+ \delta * a(i,j)
-+ \epsilon * b(i,j)
+score(i,j) =
+alpha * v(i,j)
+- beta * oppbest(i,j)
++ gamma * num_positive_parities
++ delta * a(i,j)
++ epsilon * b(i,j)
 $$
 
 where:
 
 - $v(i,j)$ — value of the chosen cell  
 - $oppbest(i,j)$ — opponent’s best immediate reply in row $i$ or column $j$  
-- $a(i,j), b(i,j)$ — parity features from the row/column after hypothetically removing $(i,j)$  
+- num_positive_parities counts how many of $a(i,j)$ and $b(i,j)$ equal +1
 
 
 Default conservative weights:
@@ -247,12 +247,12 @@ $$
 #### Components
 
 **1. Your Value**
-The immediate gain:
-$$
-v(i,j) = matrix[i][j].
-$$
 
-**2. Opponent’s Best Reply (1-ply Safety Check)**
+The immediate gain:
+v(i,j) = matrix[i][j]
+
+**2. Opponent’s Best Reply (1-play Safety Check)**
+
 After taking (i,j), the opponent must play in row i or column j.  
 Define:
 
@@ -266,6 +266,7 @@ If no reply exists, $oppbest=0$.
 This heavily penalizes moves that open large rewards to the opponent.
 
 **3. Parity Features**
+
 For each row and column, the strategy keeps track of the largest values and how many times they appear:
 
 $$
