@@ -219,17 +219,17 @@ For each legal move (i,j), the strategy computes a composite score:
 
 $$
 score(i,j)
-= \alpha\,v(i,j)
-- \beta\,\text{opp_best}(i,j)
-+ \gamma\,\#\{a(i,j), b(i,j)=+1\}
-+ \delta\,a(i,j)
-+ \epsilon\,b(i,j)
+= \alpha * v(i,j)
+- \beta * oppbest}(i,j)
++ \gamma * \#\{a(i,j), b(i,j)=+1\}
++ \delta * a(i,j)
++ \epsilon * b(i,j)
 $$
 
 where:
 
 - $v(i,j)$ — value of the chosen cell  
-- $opp_best(i,j)$ — opponent’s best immediate reply in row $i$ or column $j$  
+- $oppbest(i,j)$ — opponent’s best immediate reply in row $i$ or column $j$  
 - $a(i,j), b(i,j)$ — parity features from the row/column after hypothetically removing $(i,j)$  
 
 
@@ -249,20 +249,19 @@ $$
 **1. Your Value**
 The immediate gain:
 $$
-v(i,j) = \text{matrix}[i][j].
+v(i,j) = matrix[i][j].
 $$
 
 **2. Opponent’s Best Reply (1-ply Safety Check)**
 After taking (i,j), the opponent must play in row i or column j.  
 Define:
 
-$$
-\text{opp\_best}(i,j)
-= \max\Big( \{\,v(i,k)\mid k\neq j\,\}
-\cup
-\{\,v(k,j)\mid k\neq i\,\} \Big)
-$$
-If no reply exists, $\text{opp\_best}=0$.
+$oppbest(i,j)$ is the highest remaining value in:
+
+- row $i$ (excluding $j$), or  
+- column $j$ (excluding $i$)
+
+If no reply exists, $oppbest=0$.
 
 This heavily penalizes moves that open large rewards to the opponent.
 
