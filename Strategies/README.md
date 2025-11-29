@@ -6,6 +6,16 @@ Each strategy inherits from `Strategy.py` and implements its own method for sele
 Below you will find detailed descriptions of each strategy, including methodology,
 use-cases, and implementation details.
 
+- [Strategies](#strategies)
+  - [Strategy Overview](#strategy-overview)
+  - [Detailed Strategy Descriptions](#detailed-strategy-descriptions)
+    - [Greedy Strategy](#1-greedy-strategy)
+    - [Random Strategy](#2-random-strategy)
+    - [Monte Carlo Tree Search (MCTS)](#3-monte-carlo-tree-search-mcts)
+    - [Minimax Strategy](#4minimax-strategy)
+    - [Safe Choice Strategy](#5-safe-choice-strategy)
+  - [Adding a New Strategy](#adding-a-new-strategy)
+
 ---
 
 # Strategy Overview
@@ -16,7 +26,7 @@ use-cases, and implementation details.
 | Random Strategy         | `RandomStrategy.py`       | Picks a random legal move                          |
 | Monte Carlo Tree Search | `MCTS.py`                 | Monte Carlo Tree Search with rollouts              |
 | Minimax Strategy        | `minimax_f.py`            | Depth-limited minimax with alpha–beta pruning      |
-| Safe Choice Strategy    | `safe_choice_strategy.py` | ????????????????????????????????????????????????   |
+| Safe Choice Strategy    | `safe_choice_strategy.py` | Greedy strategy enhanced with defensive heuristics |
 
 ---
 
@@ -191,10 +201,118 @@ boards, achieving a balance between performance and speed.
 ## 5. Safe Choice Strategy
 **File:** `safe_choice_strategy.py`
 
-**Summary:**  
+**Summary:**  An optimized greedy strategy that evaluates each legal move using a composite scoring function.  
+It combines immediate gain, a 1-play opponent look-ahead, and row/column parity heuristics.  
+Safer and smarter than pure greedy, but still extremely fast (no tree search).
 
+**Characteristics**
+- Greedy with opponent-penalty  
+- 1-ply look-ahead (opponent’s best reply)  
+- Parity features from row/column maxima  
+- Deterministic tie-breaking with optional jitter
 
-**Characteristics:**
+---
+
+### Description
+
+#### Core Idea
+For each legal move \((i,j)\), the strategy computes a composite score:
+
+\[
+\text{score}(i,j)
+= \alpha\,v(i,j)
+- \beta\,\text{opp\_best}(i,j)
++ \gamma\left(\#\{a(i,j),b(i,j)=+1\}\right)
++ \delta\,a(i,j)
++ \epsilon\,b(i,j)
+\]
+
+where:
+
+- \(v(i,j)\) — value of the chosen cell  
+- \(\text{opp\_best}(i,j)\) — opponent’s best immediate reply in row \(i\) or column \(j\)  
+- \(a(i,j), b(i,j)\) — parity features from the row/column after hypothetically removing \((i,j)\)  
+
+Default conservative weights:
+
+\[
+\alpha=1.0,\quad
+\beta=1.0,\quad
+\gamma=0.15,\quad
+\delta=0.05,\quad
+\epsilon=0.05
+\]
+
+---
+
+#### Components
+
+**1. Your Value**
+The immediate gain:
+\[
+v(i,j) = \text{matrix}[i][j].
+\]
+
+**2. Opponent’s Best Reply (1-ply Safety Check)**
+After taking \((i,j)\), the opponent must play in row \(i\) or column \(j\).  
+Define:
+
+\[
+\text{opp\_best}(i,j)
+= \max\Big( \{\,v(i,k)\mid k\neq j\,\}
+\cup
+\{\,v(k,j)\mid k\neq i\,\} \Big)
+\]
+
+If no reply exists, \(\text{opp\_best}=0\).
+
+This heavily penalizes moves that open large rewards to the opponent.
+
+**3. Parity Features**
+For each row and column, the strategy keeps track of the largest values and how many times they appear:
+
+\[
+(\text{top1},\,\text{cnt}_1,\,\text{top2},\,\text{cnt}_2)
+\]
+
+When we consider taking a cell \((i,j)\), the strategy pretends that this value is removed and checks whether the remaining largest value in that row or column appears an even or odd number of times.
+
+This gives the parity features:
+
+\[
+a(i,j)=
+\begin{cases}
++1 &\text{if the row’s new max-count is even}\\
+-1 &\text{if it is odd}
+\end{cases}
+\]
+
+and the same rule defines \(b(i,j)\) for the column.
+
+Intuition:  
+Rows/columns with an even number of maximum values are considered a bit “safer,” so the score gives small bonuses when \(a\) or \(b\) equals \(+1\).
+
+---
+
+#### Final Move Decision
+
+After scoring all legal moves, the strategy picks the best one using this order of preference:
+
+1. highest composite score  
+2. more \(+1\) parity signals  
+3. better row parity \(a\), then column parity \(b\)  
+4. bottom-right position (using \(-i,-j\) as a tiebreaker)  
+5. tiny random jitter (optional)  
+
+The move with the best overall key is selected.
+
+---
+
+**Strengths**
+- Significantly safer than greedy   
+- Avoids obvious traps by accounting for opponent gain  
+- Adds structural awareness via parity heuristics
+- Very lightweight compared to Minimax or MCTS  
 
 ---
 
@@ -210,6 +328,6 @@ from Strategy import Strategy
 
 class MyStrategy(Strategy):
     def choose_action(self, state):
-        # your logic here
+        #new strategy here logic here
         pass
 ```
