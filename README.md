@@ -102,10 +102,6 @@ The results show clear performance differences:
 
 The following Python libraries were essential for developing the game's core functionality, AI strategies, and statistical evaluation:
 
-### Core Libraries
-
-The following Python libraries were essential for developing the game's core functionality, AI strategies, and statistical evaluation:
-
 | Category | Library | Purpose |
 | :--- | :--- | :--- |
 | **Core Game & Logic** | **TKINTER** | Used for creating the Graphical User Interface (GUI). |
@@ -115,7 +111,6 @@ The following Python libraries were essential for developing the game's core fun
 | | **TIME** | Used to limit the time of iterations for smoother runs (e.g., MCTS). |
 | | **MATH** | Used for mathematical operations for the strategies. |
 | | **COPY** | Used to assist the setup of the statistical simulations. |
-| | **SYS** | Used for system-specific parameters and functions. |
 | **Statistical Analysis & Plotting** | **PANDAS** | Used for assisting the setup of the statistical simulations and data handling. |
 | | **MATPLOTLIB** | Used for plotting the final results of the statistical evaluation. |
 | | **SEABORN** | Used for creating visually appealing statistical graphs and heatmaps, and plotting the final results. |
