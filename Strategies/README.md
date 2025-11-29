@@ -261,11 +261,7 @@ This heavily penalizes moves that open large rewards to the opponent.
 
 **3. Parity Features**
 
-For each row and column, the strategy keeps track of the largest values and how many times they appear:
-
-$$
-(\text{top1},\,\text{cnt}_1,\,\text{top2},\,\text{cnt}_2)
-$$
+For each row and column, the strategy keeps track of the largest values and how many times they appear.
 
 When we consider taking a cell $(i,j)$, the strategy pretends that this value is removed and checks whether the remaining largest value in that row or column appears an even or odd number of times.
 
@@ -292,7 +288,7 @@ After scoring all legal moves, the strategy picks the best one using this order 
 1. highest composite score  
 2. more $+$1 parity signals  
 3. better row parity $a$, then column parity $b$  
-4. bottom-right position (using $-i$,$-j$ as a tiebreaker)  
+4. bottom-right position (using $-i$, $-j$ as a tiebreaker)  
 5. tiny random jitter (optional)  
 
 The move with the best overall key is selected.
