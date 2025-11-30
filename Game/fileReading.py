@@ -4,7 +4,8 @@ import numpy as np
 def load_board_until_ok(default_name="boards/board.txt"):
     """ The `fileReading` module safely loads and validates the initial game board matrix from a text file.
 
-        The primary function, `load_board_until_ok`, repeatedly prompts the user for a
+        To make the game experience smother, ‘fileReading’ loads by default a new randomly generated matrix. 
+        If the file is not found, the primary function, load_board_until_ok, repeatedly prompts the user for a
         filename until a valid file containing a square matrix of integers is successfully
         read. It first attempts to load a default file (`boards/board.txt`).
 
@@ -46,8 +47,8 @@ def load_board_until_ok(default_name="boards/board.txt"):
 
 def open_file(name):
     """
-    Read a text file containing comma-separated integers per line
-    and return a square NumPy matrix (dtype=int).
+    Read a text file containing either whitespace- or comma-separated integers per line
+    and return a square NumPy matrix (dtype=object).
 
     Raises:
       - FileNotFoundError

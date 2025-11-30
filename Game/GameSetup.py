@@ -3,9 +3,7 @@ import os
 import random
 
 from Game import Player
-from Game.GameHandler import GameHandler
 
-from Strategies.Strategy import Strategy
 from Strategies.RandomStrategy import RandomStrategy
 from Strategies.safe_choice_strategy import SafeChoiceStrategy
 from Strategies.GreedyStrategy import GreedyStrategy

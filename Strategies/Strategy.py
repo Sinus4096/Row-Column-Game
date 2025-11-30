@@ -1,5 +1,3 @@
-import random as rd
-
 class Strategy:
     """
     Base class for game strategies

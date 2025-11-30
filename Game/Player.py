@@ -1,5 +1,3 @@
-from Strategies.Strategy import Strategy
-
 class Player:
     """ The Player class serves as a data structure and interface to represent a participant
         in the game, whether human or computer. It stores the player's identity and
