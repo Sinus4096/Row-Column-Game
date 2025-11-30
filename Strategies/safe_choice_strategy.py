@@ -43,13 +43,13 @@ class SafeChoiceStrategy(Strategy):
         self._row_summary_cache: Dict[int, Tuple[Optional[float], int, Optional[float], int]] = {}
         self._col_summary_cache: Dict[int, Tuple[Optional[float], int, Optional[float], int]] = {}
 
-    # ---- public API ----
+    # public API
     def move(self, matrix: Matrix, last_move: Optional[Coord], scores) -> Optional[Coord]:
         n = len(matrix)
         if n == 0:
             return None
 
-        # clear caches for this decision
+        #clear caches for this decision
         self._row_summary_cache.clear()
         self._col_summary_cache.clear()
 
@@ -66,7 +66,7 @@ class SafeChoiceStrategy(Strategy):
                 # defensive: shouldn't happen due to _valid_moves filter
                 continue
 
-            # parity features from current board state
+            #parity features from current board state
             a = self._parity_from_row_excluding(i, j, v, self._top2_summary_row(matrix, i))
             b = self._parity_from_col_excluding(i, j, v, self._top2_summary_col(matrix, j))
             ones = (1 if a == 1 else 0) + (1 if b == 1 else 0)
@@ -84,7 +84,7 @@ class SafeChoiceStrategy(Strategy):
 
             # build deterministic ordering key
             # (primary by composite, then parity richness, then a, then b, then bottom-rightmost)
-            # add tiny jitter if requested to avoid always picking same path under deep ties
+            #add tiny jitter if requested to avoid always picking same path under deep ties
             jitter = 0.0
             if self.jitter:
                 import random
@@ -98,7 +98,7 @@ class SafeChoiceStrategy(Strategy):
 
         return best
 
-    # ---- helpers: validity & primitive values ----
+    # helpers: validity & primitive values
     @staticmethod
     def _is_free(val: object) -> bool:
         return val != '-'
@@ -126,7 +126,7 @@ class SafeChoiceStrategy(Strategy):
                 out.append((i, c0))
         return out
 
-    # ---- opponent look-ahead (1 ply) ----
+    # opponent look-ahead (1 ply)
     def _opponent_best_after(self, matrix: Matrix, i: int, j: int) -> float:
         """
         After we take (i, j), opponent must play in row i or column j on remaining cells.
@@ -157,7 +157,7 @@ class SafeChoiceStrategy(Strategy):
             return 0.0  # no reply available
         return best_val
 
-    # ---- summaries & parity (reuse your top-2 logic with caching) ----
+    # summaries & parity (reuse your top-2 logic with caching)
     def _top2_summary_row(self, matrix: Matrix, i: int):
         if i not in self._row_summary_cache:
             vals = [self._cell_value(matrix, i, j) for j in range(len(matrix)) if self._is_free(matrix[i][j])]

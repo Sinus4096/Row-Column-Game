@@ -23,8 +23,8 @@ class AlphaBetaNode:
         move: Optional[Tuple[int, int]] = None,
         scores: Tuple[int, int] = (0, 0),
     ):
-        # Board uses 0 to denote "taken" cells. Only non-zero cells are available.
-        # This node does not mutate its board (children get deep copies).
+        #Board uses 0 to denote "taken" cells. Only non-zero cells are available.
+        # this node does not mutate its board (children get deep copies).
         self.board = board
         self.last_move = last_move
         self.player_id = player_id          # 1 or 2: whose turn at THIS node
@@ -36,15 +36,12 @@ class AlphaBetaNode:
 
     def get_available_moves(self) -> List[Tuple[int, int]]:
         # Return all valid moves from the current state.
-        # Caches the result since nodes are immutable snapshots.
+        # caches the result since nodes are immutable snapshots.
     
         if self._cached_moves is not None:
             return self._cached_moves
 
-        # Row-Column rule:
-            # First move: choose any non-zero cell.
-            # Afterwards: moves must lie in the same row OR same column as last_move.
-
+        # Row-Column rule: first move - choose any non-zero cell; afterwards - moves must lie in the same row OR same column as last_move.
         if self.last_move is None:
             moves = [(r, c)
                      for r, row in enumerate(self.board)
@@ -55,12 +52,12 @@ class AlphaBetaNode:
         last_r, last_c = self.last_move
         moves: List[Tuple[int, int]] = []
 
-        # Same row
+        # same row
         for c, val in enumerate(self.board[last_r]):
             if val != 0:
                 moves.append((last_r, c))
 
-        # Same column (avoid duplicating the (last_r, last_c) intersection)
+        # same column (avoid duplicating the (last_r, last_c) intersection)
         for r, row in enumerate(self.board):
             if r != last_r and row[last_c] != 0:
                 moves.append((r, last_c))
@@ -69,16 +66,16 @@ class AlphaBetaNode:
         return moves
 
     def is_terminal(self) -> bool:
-        # No valid moves remain in the current row/column band.
+        # no valid moves remain in the current row/column band.
         return len(self.get_available_moves()) == 0
 
     def generate_children(self) -> List["AlphaBetaNode"]:
     
-    #   Create child nodes for all possible moves from this state.
-    #   Results are cached in self.children to avoid regeneration.
-        # Update the correct player's score:
-        # At this node, self.player_id identifies who is making the move.
-        # That player receives the numeric value of the chosen cell.
+    #Create child nodes for all possible moves from this state.
+    # results are cached in self.children to avoid regeneration.
+    #Update the correct player's score:
+    # at this node, self.player_id identifies who is making the move.
+    #  That player receives the numeric value of the chosen cell.
 
         if self.children:
             return self.children
@@ -92,7 +89,7 @@ class AlphaBetaNode:
             new_board = [row[:] for row in self.board]
             new_board[r][c] = 0
 
-            # Update scores (current node's player collects the value)
+            # update scores (current node's player collects the value)
             s1, s2 = self.scores
             if self.player_id == 1:
                 s1 += val
@@ -120,12 +117,12 @@ class AlphaBetaStrategy(Strategy):
         self.hard_depth_cap = hard_depth_cap
         self.player_id = 1  # set in move()
 
-    # ---- Depth selection rationale ----
+    # Depth selection rationale:
     # We estimate how deep we can search in the decision tree without exploding the node count.
     # Effective branching ~ (2*n - 1) because each turn is restricted to row+column.
-    # Solve   b^d <= max_nodes_budget   for depth d.
+    #Solve   b^d <= max_nodes_budget   for depth d.
     # Then clamp depth by remaining moves and a safety cap.
-    # This produces deeper search on small boards and shallower search on large boards. (Still has great performance but runs more smoothly)
+    #This produces deeper search on small boards and shallower search on large boards. (Still has great performance but runs more smoothly)
 
     def _dynamic_depth(self, board, last_move) -> int:
         # Pick a depth that fits the board size and remaining moves,
@@ -153,7 +150,7 @@ class AlphaBetaStrategy(Strategy):
         # normalize "-" -> 0
         internal_board = [[0 if cell == "-" else cell for cell in row] for row in board]
 
-        # whose turn?
+        #whose turn?
         moves_made = sum(row.count(0) for row in internal_board)
         player_id = 2 if moves_made % 2 else 1
         self.player_id = player_id
@@ -181,7 +178,7 @@ class AlphaBetaStrategy(Strategy):
             best_move = max(avail, key=lambda m: internal_board[m[0]][m[1]])
         return best_move
 
-    # ---------- Heuristic (root-player centric) ----------
+    # Heuristic (root-player centric)
     # Evaluation function:
         # Returns a heuristic value from the perspective of the ROOT player.
         # Components:
@@ -191,7 +188,7 @@ class AlphaBetaStrategy(Strategy):
             # Small weights keep the heuristic stable and avoid oscillations.
 
     def evaluate(self, node: AlphaBetaNode) -> float:
-        # Fast heuristic. Positive is better for the ROOT player (self.player_id).
+        # fast heuristic. Positive is better for the ROOT player (self.player_id).
         # Terms:
         #  - score difference (me - opp)
         #  - mobility proxy (who is to move soon and how many options)
@@ -205,7 +202,7 @@ class AlphaBetaStrategy(Strategy):
         # Mobility proxy: favor states where the ROOT will soon have many options
         my_moves = 0
         opp_moves = 0
-        # If next player to move equals root, then mobility is about this node
+        #if next player to move equals root, then mobility is about this node
         avail = node.get_available_moves()
         if node.player_id == p:
             my_moves = len(avail)
@@ -222,17 +219,17 @@ class AlphaBetaStrategy(Strategy):
             col_sum = sum(node.board[rr][c] for rr in range(n) if node.board[rr][c] != 0)
             row_col_potential = row_sum + col_sum
 
-        # Tunable weights (kept small to maintain evaluation stability)
+        # tunable weights (kept small to maintain evaluation stability)
         return (
             1.0 * score_diff +
             0.25 * (my_moves - opp_moves) +
             0.05 * row_col_potential
         )
 
-    # ---------- Alpha-Beta core with move ordering ----------
+    # Alpha-Beta core with move ordering
 
     def alpha_beta(self, node: AlphaBetaNode, depth: int, alpha: float, beta: float, maximizing_player: bool) -> float:
-        # Terminal or cutoff
+        #terminal or cutoff
         if depth == 0 or node.is_terminal():
             return self.evaluate(node)
 
@@ -244,8 +241,8 @@ class AlphaBetaStrategy(Strategy):
         root_pid = self.player_id
         
         # maximizing_player:
-        # True  → we choose the move that maximizes evaluation for the ROOT player
-        # False → opponent's turn; they choose a move that minimizes the ROOT score
+        # true  → we choose the move that maximizes evaluation for the ROOT player
+        # false → opponent's turn; they choose a move that minimizes the ROOT score
         #
         # This alternation implements the minimax logic.
 
@@ -267,7 +264,7 @@ class AlphaBetaStrategy(Strategy):
                 value = min(value, self.alpha_beta(child, depth - 1, alpha, beta, True))
                 beta = min(beta, value)
                 if beta <= alpha:
-                    break  # Alpha cut
+                    break  # alpha cut
             return value
 
 
